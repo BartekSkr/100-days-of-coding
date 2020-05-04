@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgb(37, 37, 187), rgb(34, 88, 250));
+  font-family: sans-serif;
+  color: white;
+}
+
+.location {
+  height: 40vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+}
+
+#location-country {
+  margin-left: 10px;
+}
+
+.weather-icon {
+  height: 40vh;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.temperature {
+  height: 10vh;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  margin: 0;
+}
+
+.temperature-degree-section {
+  display: flex;
+  align-items: center;
+}
+
+.temperature-degree {
+  cursor: pointer;
+}
+
+.temperature-degree-section > span {
+  font-size: larger;
+  margin: 10px;
+}
+
+.temperature-degree-feels {
+  height: 8vh;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  display: flex;
+}
+
+.temperature-degree-feels > h3 {
+  margin-right: 2px;
+}
+
+.temperature-degree-feels > span {
+  margin-top: 2px;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.wind {
+  height: 8vh;
+  position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  display: flex;
+}
+
+.wind > h4 {
+  margin-right: 2px;
+  margin-left: 5px;
+}

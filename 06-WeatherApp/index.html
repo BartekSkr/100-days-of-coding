@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/2ea631baeb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="location">
+      <h1 class="location-timezone">city</h1>
+      <h1 id="location-country">country</h1>
+    </div>
+    <div class="weather-icon"></div>
+    <div class="temperature">
+      <div class="temperature-description">weather description</div>
+      <div class="temperature-degree-section">
+        <h1 class="temperature-degree">-</h1>
+        <span>°C</span>
+      </div>
+      <div class="temperature-degree-feels">
+        <span>Feels like</span>
+        <h3 class="temperature-degree-feels-like">-</h3>
+        <span id="temperature-feels-like-span">°C</span>
+      </div>
+      <div class="wind">
+        <i class="fas fa-wind"></i>
+        <h4 class="wind-speed">-</h4>
+        <h4 class="wind-direction">direction</h4>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
