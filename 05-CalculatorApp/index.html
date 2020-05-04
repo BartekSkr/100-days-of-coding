@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="screen">
+        <input type="text" id="textview" placeholder="0" />
+      </div>
+      <div class="buttons">
+        <div class="row-1">
+          <button class="operator" onclick="insertOp('+')">+</button>
+          <button class="operator" onclick="insertOp('-')">-</button>
+          <button class="operator" onclick="insertOp('*')">&times</button>
+          <button class="operator" onclick="insertOp('/')">÷</button>
+        </div>
+        <div class="row-2">
+          <button class="button" onclick="insertNum(7)">7</button>
+          <button class="button" onclick="insertNum(8)">8</button>
+          <button class="button" onclick="insertNum(9)">9</button>
+          <button class="button" onclick="clearAll()">AC</button>
+        </div>
+        <div class="row-3">
+          <button class="button" onclick="insertNum(4)">4</button>
+          <button class="button" onclick="insertNum(5)">5</button>
+          <button class="button" onclick="insertNum(6)">6</button>
+          <button class="button" onclick="back()">C</button>
+        </div>
+        <div class="row-4">
+          <button class="button" onclick="insertNum(1)">1</button>
+          <button class="button" onclick="insertNum(2)">2</button>
+          <button class="button" onclick="insertNum(3)">3</button>
+          <button class="button" onclick="insertDec('.')">.</button>
+        </div>
+        <div class="row-5">
+          <button class="button" onclick="insertNum(0)">0</button>
+          <button class="equal-key" onclick="equalTo()">=</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
