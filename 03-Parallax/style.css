@@ -1,0 +1,35 @@
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.parallax {
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-1 {
+  height: 770px;
+  background-image: url(/03/images/img1.jpg);
+}
+
+.parallax-2 {
+  background-image: url(/03/images/img2.jpg);
+}
+
+.parallax-3 {
+  background-image: url(/03/images/img3.jpg);
+}
+
+.content-1,
+.content-2 {
+  background-color: whitesmoke;
+  font-size: 40px;
+  padding: 40px;
+  text-align: center;
+}
