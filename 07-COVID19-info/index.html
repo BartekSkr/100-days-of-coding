@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/2ea631baeb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>COVID-19 info</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>COVID-19 information</h1>
+      </div>
+      <hr />
+      <div class="data">
+        <div class="global">
+          <div class="global-title">
+            <i class="fas fa-globe fa-2x" id="global-icon"></i>
+            <label>Świat</label>
+          </div>
+          <div class="global-data">
+            <label for="global-data-cases">Cases:</label>
+            <div class="global-data-cases">-</div>
+            <label for="global-data-deaths">Deaths:</label>
+            <div class="global-data-deaths">-</div>
+            <label for="global-data-recovered">Recovered:</label>
+            <div class="global-data-recovered">-</div>
+          </div>
+        </div>
+        <hr />
+        <div class="country">
+          <div class="country-title">
+            <i class="fas fa-flag fa-2x"></i>
+            <label for="country-1-icon">Polska</label>
+          </div>
+          <div class="country-data">
+            <label for="todayCases">Today cases:</label>
+            <div class="todayCases">-</div>
+            <label for="todayDeaths">Today deaths:</label>
+            <div class="todayDeaths">-</div>
+            <label for="overallCases">Overall cases:</label>
+            <div class="overallCases">-</div>
+            <label for="overallDeaths">Overall deaths:</label>
+            <div class="overallDeaths">-</div>
+            <label for="overallRecovered">Overall recovered:</label>
+            <div class="overallRecovered">-</div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="footer"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
