@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,12 +15,15 @@ body {
 
 .container {
   position: absolute;
-  padding: 5px;
+  /* padding: 5px; */
+  padding: 0 1%;
+  width: 98%;
 }
 
 .container > .menu {
   float: left;
-  height: 1030px;
+  /* height: 1030px; */
+  height: 99vh;
   width: 15%;
   border-right: 3px solid black;
   text-indent: 5%;
