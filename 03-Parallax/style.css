@@ -15,15 +15,15 @@ html {
 
 .parallax-1 {
   height: 770px;
-  background-image: url(/03/images/img1.jpg);
+  background-image: url(/images/img1.jpg);
 }
 
 .parallax-2 {
-  background-image: url(/03/images/img2.jpg);
+  background-image: url(/images/img2.jpg);
 }
 
 .parallax-3 {
-  background-image: url(/03/images/img3.jpg);
+  background-image: url(/images/img3.jpg);
 }
 
 .content-1,
