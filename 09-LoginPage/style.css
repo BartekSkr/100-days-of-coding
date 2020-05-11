@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(royalblue, rgb(5, 207, 5));
+  height: 4700px;
+  width: 100%;
+}
+
+.container {
+  height: 4670px;
+  width: 400px;
+  position: relative;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container > .nav {
+  background-color: rgb(111, 22, 122);
+  height: 60px;
+  width: 100%;
+  position: sticky;
+  top: 10px;
+  left: 0;
+  text-align: center;
+}
+
+.container > .nav > p {
+  font-size: 30px;
+  color: whitesmoke;
+  padding: 15px 0;
+}
+
+.container > .nav > a > i {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+  transition: 0.3s transform linear;
+}
+
+.container > .form {
+  text-align: center;
+}
+
+.container > .form > .form-login,
+.container > .form > .form-email,
+.container > .form > .form-password,
+.container > .form > .form-terms-of-conditions {
+  height: 60px;
+  width: 100%;
+  display: inline-block;
+  color: white;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.container > .form > .form-login > input,
+.container > .form > .form-email > input,
+.container > .form > .form-password > input {
+  height: 30px;
+  width: 200px;
+  outline: none;
+  border-radius: 10px;
+  text-indent: 10px;
+  font-size: 15px;
+  transition: 0.3s transform linear;
+}
+
+.container > .form > .form-login > i,
+.container > .form > .form-email > i,
+.container > .form > .form-password > i {
+  margin: 22px 10px;
+}
+
+.container > .form > .form-login > p,
+.container > .form > .form-email > p,
+.container > .form > .form-password > p {
+  padding: 20px 10px;
+  font-size: 20px;
+}
+
+.container > .form > .form-terms-of-conditions {
+  margin: 20px 5px;
+}
+
+.container > .form > .form-terms-of-conditions > label {
+  float: left;
+  width: 340px;
+}
+
+.container > .form > .form-terms-of-conditions > .terms-input {
+  float: right;
+  width: 60px;
+}
+
+.container > .form > .form-terms-of-conditions > .terms-input > input {
+  position: relative;
+  top: 20px;
+  left: 0;
+}
+
+.form-button {
+  margin-top: 15px;
+}
+
+.form-button > button {
+  height: 30px;
+  width: 80px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s transform linear;
+}
+
+/* HOME-BTN AND ACCEPT-BTT ANIMATION */
+.container > .nav > a > i:hover,
+.form-button > button:hover {
+  transform: scale(1.3);
+  transition: 0.3s transform linear;
+}
+
+/* INPUT ANIMATION */
+.container > .form > .form-login > input:focus,
+.container > .form > .form-email > input:focus,
+.container > .form > .form-password > input:focus {
+  transform: scale(1.1);
+  transition: 0.5s transform linear;
+}
+
+/* VALIDATION STYLING */
+input:invalid {
+  border-bottom: 3px solid red;
+}
+
+input:valid {
+  border-bottom: 5px solid green;
+}
