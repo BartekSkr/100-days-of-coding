@@ -16,6 +16,11 @@ const POLAND_API = `https://coronavirus-19-api.herokuapp.com/countries/poland`;
 const globalData = {};
 const polandData = {};
 
+function numberSpaces(num) {
+  const regex = /\B(?=(\d{3})+(?!\d))/g;
+  return num.toString().replace(regex, " ");
+}
+
 function getData() {
   // GLOBAL
   fetch(GLOBAL_API)
@@ -50,16 +55,16 @@ function getData() {
 
 function displayData() {
   // GLOBAL
-  globalCases.textContent = globalData.cases;
-  globalDeaths.textContent = globalData.deaths;
-  globalRecovered.textContent = globalData.recovered;
+  globalCases.textContent = numberSpaces(globalData.cases);
+  globalDeaths.textContent = numberSpaces(globalData.deaths);
+  globalRecovered.textContent = numberSpaces(globalData.recovered);
 
   // POLAND
-  polandTodayCases.textContent = polandData.todayCases;
-  polandTodayDeaths.textContent = polandData.todayDeaths;
-  polandCases.textContent = polandData.cases;
-  polandDeaths.textContent = polandData.deaths;
-  polandRecovered.textContent = polandData.recovered;
+  polandTodayCases.textContent = numberSpaces(polandData.todayCases);
+  polandTodayDeaths.textContent = numberSpaces(polandData.todayDeaths);
+  polandCases.textContent = numberSpaces(polandData.cases);
+  polandDeaths.textContent = numberSpaces(polandData.deaths);
+  polandRecovered.textContent = numberSpaces(polandData.recovered);
 }
 
 window.addEventListener("load", getData);
