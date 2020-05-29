@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Mars Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="info">
+        <h1>Latest Weather at Elysium Planitia</h1>
+        <p>
+          InSight is taking daily weather meadurments (temperature, wind,
+          pressure) on the surface of Mars at Elysium Planitia a flat, smooth
+          plain near Mars' equator.
+        </p>
+      </div>
+      <div class="current-data">
+        <div class="solDate">
+          Sol
+          <span data-current-sol></span>
+        </div>
+        <div class="highTemp">
+          High temp: <span data-current-high-temp></span>° C
+        </div>
+        <div class="earthDate"><span data-current-date></span></div>
+        <div class="lowTemp">
+          Low temp: <span data-current-low-temp></span>° C
+        </div>
+      </div>
+      <div class="past-data">
+        <div class="past-data1">
+          <p id="day1-sol">Sol <span data-first-sol></span></p>
+          <p id="day1-earth-date"><span data-first-date></span></p>
+          <hr />
+          <p id="day1-high-temp">
+            High temp: <span data-first-high-temp></span>° C
+          </p>
+          <p id="day1-min-temp">
+            Low temp: <span data-first-low-temp></span>° C
+          </p>
+        </div>
+        <div class="past-data2">
+          <p id="day2-sol">Sol <span data-second-sol></span></p>
+          <p id="day2-earth-date"><span data-second-date></span></p>
+          <hr />
+          <p id="day2-high-temp">
+            High temp: <span data-second-high-temp></span>° C
+          </p>
+          <p id="day2-min-temp">
+            Low temp: <span data-second-low-temp></span>° C
+          </p>
+        </div>
+        <div class="past-data3">
+          <p id="day3-sol">Sol <span data-third-sol></span></p>
+          <p id="day3-earth-date"><span data-third-date></span></p>
+          <hr />
+          <p id="day3-high-temp">
+            High temp: <span data-third-high-temp></span>° C
+          </p>
+          <p id="day3-min-temp">
+            Low temp: <span data-third-low-temp></span>° C
+          </p>
+        </div>
+        <div class="past-data4">
+          <p id="day4-sol">Sol <span data-fourth-sol></span></p>
+          <p id="day4-earth-date"><span data-fourth-date></span></p>
+          <hr />
+          <p id="day4-high-temp">
+            High temp: <span data-fourth-high-temp></span>° C
+          </p>
+          <p id="day4-min-temp">
+            Low temp: <span data-fourth-low-temp></span>° C
+          </p>
+        </div>
+        <div class="past-data5">
+          <p id="day5-sol">Sol <span data-fifth-sol></span></p>
+          <p id="day5-earth-date"><span data-fifth-date></span></p>
+          <hr />
+          <p id="day5-high-temp">
+            High temp: <span data-fifth-high-temp></span>° C
+          </p>
+          <p id="day5-min-temp">
+            Low temp: <span data-fifth-low-temp></span>° C
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
