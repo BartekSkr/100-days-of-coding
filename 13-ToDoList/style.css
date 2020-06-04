@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, yellow, red);
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.container > h1,
+.container > .add-items {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container > h1 {
+  font-size: 3rem;
+}
+
+.container > .add-items > input,
+.container > .add-items > button {
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  background: whitesmoke;
+  outline: none;
+}
+
+.container > .add-items > button {
+  color: rgb(201, 200, 200);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.container > .add-items > button:hover {
+  color: rgb(255, 0, 0);
+  background: rgb(201, 200, 200);
+}
+
+.container > .todo-list {
+  margin-left: 40%;
+  transform: translateX(-34%);
+  color: black;
+}
+
+.container > .todo-list li {
+  background: whitesmoke;
+  margin: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  display: flex;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 30%;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.container > .todo-list input {
+  display: none;
+}
+
+.container > .todo-list label {
+  margin: 10px;
+  font-size: 20px;
+  flex: 1;
+}
+
+.container > .todo-list i {
+  cursor: pointer;
+}
+
+.container > .todo-list .fa-check,
+.container > .todo-list .fa-trash-alt {
+  background: whitesmoke;
+  color: rgb(201, 200, 200);
+  font-size: 20px;
+  border: none;
+  padding: 18px;
+  margin: 0;
+  transition: all 0.3s;
+}
+
+.container > .todo-list .fa-trash-alt {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* .container > .todo-list li:hover {
+  transform: scale(1.05);
+} */
+
+.container > .todo-list .fa-check:hover {
+  color: whitesmoke;
+  background: rgb(7, 175, 7);
+}
+
+.container > .todo-list .fa-trash-alt:hover {
+  color: whitesmoke;
+  background: rgb(228, 1, 1);
+}
