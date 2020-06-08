@@ -1,46 +1,67 @@
 const addItems = document.querySelector(".add-items");
 const itemsList = document.querySelector(".todo-list");
-const checkButton = document.querySelector(".fa-check");
-const deleteButton = document.querySelector(".fa-trash-alt");
+const newListInput = document.querySelector(".todo-input");
 const clearAll = document.querySelector(".clear-all");
-const items = JSON.parse(localStorage.getItem("items")) || [];
 
-function addItem(e) {
+const LOCAL_STORAGE_LIST_KEY = "task.list";
+
+const todoList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+
+addItems.addEventListener("submit", (e) => {
   e.preventDefault();
-  const text = this.querySelector(".todo-input").value;
-  const item = { text: text, done: false };
+  const listName = newListInput.value;
+  if (listName === null || listName === "") return;
 
-  items.push(item);
-  populateList(items, itemsList);
-  localStorage.setItem("items", JSON.stringify(items));
-  this.reset();
+  const list = createList(listName);
+  newListInput.value = null;
+  todoList.push(list);
+  saveAndRender();
+});
+
+function createList(name) {
+  return { id: Date.now().toString(), name: name };
 }
 
-function populateList(todoArr = [], todoList) {
-  todoList.innerHTML = todoArr
-    .map((todo, i) => {
-      return `
-        <li>
-            <input type="checkbox" data-index=${i} id="item${i}" ${
-        todo.done ? "checked" : ""
-      }/>
-            <label for="item${i}">${
-        todo.text
-      }</label><i class="fas fa-check"></i><i class="fas fa-trash-alt"></i>
-        </li>
-        `;
-    })
-    .join("");
+function save() {
+  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(todoList));
 }
 
-function toggleDone(e) {
-  if (!e.target.matches("input")) return;
+function saveAndRender() {
+  save();
+  render();
+}
 
-  const el = e.target;
-  const index = el.dataset.index;
-  items[index].done = !items[index].done;
-  localStorage.setItem("items", JSON.stringify(items));
-  populateList(items, itemsList);
+function render() {
+  clearElement(itemsList);
+  todoList.forEach((list) => {
+    const listElement = document.createElement("li");
+    listElement.dataset.listId = list.id;
+    listElement.classList.add("todo-list");
+    listElement.innerText = list.name;
+
+    const listIconDiv = document.createElement("div");
+    listIconDiv.classList.add("todo-list-div");
+
+    listIconCheck = document.createElement("i");
+    listIconCheck.innerHTML = `<i class="fas fa-check"></i>`;
+
+    listIconDelete = document.createElement("i");
+    listIconDelete.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+
+    listIconDiv.appendChild(listIconCheck);
+    listIconDiv.appendChild(listIconDelete);
+    listElement.appendChild(listIconDiv);
+    itemsList.appendChild(listElement);
+
+    listIconCheck.addEventListener("click", check);
+    listIconDelete.addEventListener("click", deleteItem);
+  });
+}
+
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
 
 function clear() {
@@ -48,9 +69,22 @@ function clear() {
   location.reload();
 }
 
-addItems.addEventListener("submit", addItem);
-itemsList.addEventListener("click", toggleDone);
-// checkButton.addEventListener("click", check);
+function check(e) {
+  e.target.parentElement.parentElement.parentElement.classList.toggle(
+    "completed"
+  );
+}
+
+function deleteItem(e) {
+  e.target.parentElement.parentElement.parentElement.classList.add("fall");
+  e.target.parentElement.parentElement.parentElement.addEventListener(
+    "transitionend",
+    () => {
+      e.target.parentElement.parentElement.parentElement.remove();
+    }
+  );
+}
+
 clearAll.addEventListener("click", clear);
 
-populateList(items, itemsList);
+render();

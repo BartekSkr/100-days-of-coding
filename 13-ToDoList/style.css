@@ -44,9 +44,13 @@ body {
   transition: all 0.3s ease-in;
 }
 
-.container > .add-items > button:hover {
+.container > .add-items > .todo-btn:hover {
   color: rgb(255, 0, 0);
   background: rgb(201, 200, 200);
+}
+
+.container > .add-items > .clear-all:hover {
+  background: rgba(255, 0, 0, 0.89);
 }
 
 .container > .todo-list {
@@ -57,26 +61,21 @@ body {
 
 .container > .todo-list li {
   background: whitesmoke;
+  font-size: 20px;
   margin: 5px;
+  padding-left: 10px;
   border-radius: 5px;
   justify-content: center;
   display: flex;
   list-style: none;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 30%;
-  /* transition: all 0.3s ease-in-out; */
+  transition: all 0.5s ease;
 }
 
 .container > .todo-list input {
   display: none;
-}
-
-.container > .todo-list label {
-  margin: 10px;
-  font-size: 20px;
-  flex: 1;
 }
 
 .container > .todo-list i {
@@ -91,6 +90,7 @@ body {
   border: none;
   padding: 18px;
   margin: 0;
+  opacity: 0.8;
   transition: all 0.3s;
 }
 
@@ -99,16 +99,24 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-/* .container > .todo-list li:hover {
-  transform: scale(1.05);
-} */
-
 .container > .todo-list .fa-check:hover {
   color: whitesmoke;
   background: rgb(7, 175, 7);
+  opacity: 1;
 }
 
 .container > .todo-list .fa-trash-alt:hover {
   color: whitesmoke;
   background: rgb(228, 1, 1);
+  opacity: 1;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
