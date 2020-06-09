@@ -1,90 +1,110 @@
-const addItems = document.querySelector(".add-items");
-const itemsList = document.querySelector(".todo-list");
-const newListInput = document.querySelector(".todo-input");
-const clearAll = document.querySelector(".clear-all");
+const data = localStorage.getItem("todoList")
+  ? JSON.parse(localStorage.getItem("todoList"))
+  : {
+      todo: [],
+      completed: [],
+    };
 
-const LOCAL_STORAGE_LIST_KEY = "task.list";
+renderTodoList();
 
-const todoList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
-
-addItems.addEventListener("submit", (e) => {
+//ADDING TEXT FROM INPUT TO THE LIST
+document.querySelector(".todo-btn").addEventListener("click", (e) => {
   e.preventDefault();
-  const listName = newListInput.value;
-  if (listName === null || listName === "") return;
+  let newItem = document.querySelector(".todo-input").value;
+  if (newItem) {
+    addItemTodo(newItem);
+    document.querySelector(".todo-input").value = "";
 
-  const list = createList(listName);
-  newListInput.value = null;
-  todoList.push(list);
-  saveAndRender();
+    data.todo.push(newItem);
+    saveToLocalStorage();
+  }
 });
 
-function createList(name) {
-  return { id: Date.now().toString(), name: name };
-}
+function renderTodoList() {
+  if (!data.todo.length && !data.completed.length) return;
 
-function save() {
-  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(todoList));
-}
+  for (let i = 0; i < data.todo.length; i++) {
+    let todoValue = data.todo[i];
+    addItemTodo(todoValue);
+  }
 
-function saveAndRender() {
-  save();
-  render();
-}
-
-function render() {
-  clearElement(itemsList);
-  todoList.forEach((list) => {
-    const listElement = document.createElement("li");
-    listElement.dataset.listId = list.id;
-    listElement.classList.add("todo-list");
-    listElement.innerText = list.name;
-
-    const listIconDiv = document.createElement("div");
-    listIconDiv.classList.add("todo-list-div");
-
-    listIconCheck = document.createElement("i");
-    listIconCheck.innerHTML = `<i class="fas fa-check"></i>`;
-
-    listIconDelete = document.createElement("i");
-    listIconDelete.innerHTML = `<i class="fas fa-trash-alt"></i>`;
-
-    listIconDiv.appendChild(listIconCheck);
-    listIconDiv.appendChild(listIconDelete);
-    listElement.appendChild(listIconDiv);
-    itemsList.appendChild(listElement);
-
-    listIconCheck.addEventListener("click", check);
-    listIconDelete.addEventListener("click", deleteItem);
-  });
-}
-
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+  for (let j = 0; j < data.completed.length; j++) {
+    let completedValue = data.completed[j];
+    addItemTodo(completedValue, true);
   }
 }
 
-function clear() {
-  localStorage.clear();
-  location.reload();
+function saveToLocalStorage() {
+  localStorage.setItem("todoList", JSON.stringify(data));
 }
 
-function check(e) {
-  e.target.parentElement.parentElement.parentElement.classList.toggle(
-    "completed"
-  );
+function removeItem() {
+  const item = this.parentNode.parentNode;
+  const parent = item.parentNode;
+  const id = parent.id;
+
+  if (id === "todo") {
+    data.todo.splice(data.todo.indexOf(item.innerText), 1);
+  } else {
+    data.completed.splice(data.completed.indexOf(item.innerText), 1);
+  }
+
+  saveToLocalStorage();
+
+  parent.removeChild(item);
 }
 
-function deleteItem(e) {
-  e.target.parentElement.parentElement.parentElement.classList.add("fall");
-  e.target.parentElement.parentElement.parentElement.addEventListener(
-    "transitionend",
-    () => {
-      e.target.parentElement.parentElement.parentElement.remove();
-    }
-  );
+function completeItem() {
+  const item = this.parentNode.parentNode;
+  const parent = item.parentNode;
+  const id = parent.id;
+
+  if (id === "todo") {
+    data.todo.splice(data.todo.indexOf(item.innerText), 1);
+    data.completed.push(item.innerText);
+  } else {
+    data.completed.splice(data.completed.indexOf(item.innerText), 1);
+    data.todo.push(item.innerText);
+  }
+
+  saveToLocalStorage();
+
+  //CHECK IF THE ITEM SHOULD BE ADDED TO TODO OR COMPLETED LIST
+  let target =
+    id === "todo"
+      ? document.getElementById("completed")
+      : document.getElementById("todo");
+
+  parent.removeChild(item);
+  target.insertBefore(item, target.childNodes[0]);
 }
 
-clearAll.addEventListener("click", clear);
+//ADDING NEW ITEMS TO THE LIST
+function addItemTodo(itemText, completed) {
+  const list = completed
+    ? document.getElementById("completed")
+    : document.getElementById("todo");
 
-render();
+  const item = document.createElement("li");
+  item.innerText = itemText;
+
+  const buttons = document.createElement("div");
+  buttons.classList.add("buttons");
+
+  const completeBtn = document.createElement("i");
+  completeBtn.innerHTML = `<i class="fas fa-check"></i>`;
+
+  //CLICK EVENT FOR COMPLETING THE ITEM
+  completeBtn.addEventListener("click", completeItem);
+
+  const deleteBtn = document.createElement("i");
+  deleteBtn.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+
+  //CLICK EVENT FOR REMOVING THE ITEM
+  deleteBtn.addEventListener("click", removeItem);
+
+  buttons.appendChild(completeBtn);
+  buttons.appendChild(deleteBtn);
+  item.appendChild(buttons);
+  list.appendChild(item);
+}
