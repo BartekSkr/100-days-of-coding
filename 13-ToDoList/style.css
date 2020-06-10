@@ -49,10 +49,6 @@ body {
   background: rgb(201, 200, 200);
 }
 
-.container > .add-items > .clear-all:hover {
-  background: rgba(255, 0, 0, 0.89);
-}
-
 .container > .todo-list {
   margin-left: 40%;
   transform: translateX(-34%);
