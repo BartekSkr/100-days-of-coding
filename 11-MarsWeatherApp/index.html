@@ -3,31 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="style.css" />
+
     <title>Mars Weather</title>
   </head>
   <body>
     <div class="container">
       <div class="info">
-        <h1>Latest Weather at Elysium Planitia</h1>
+        <h1>Latest Weather at a Elysium Planitia</h1>
         <p>
           InSight is taking daily weather meadurments (temperature, wind,
-          pressure) on the surface of Mars at Elysium Planitia a flat, smooth
-          plain near Mars' equator.
+          pressure) on the surface of Mars at
+          <a
+            href="https://en.wikipedia.org/wiki/Elysium_Planitia"
+            target="_blank"
+            >Elysium Planitia</a
+          >
+          a flat, smooth plain near Mars' equator.
         </p>
       </div>
       <div class="current-data">
         <div class="solDate">
-          Sol
+          <a
+            href="https://en.wikipedia.org/wiki/Sol_(day_on_Mars)"
+            target="_blank"
+          >
+            Sol</a
+          >
           <span data-current-sol></span>
         </div>
         <div class="highTemp">
-          High temp: <span data-current-high-temp></span>° C
+          High temp:
+          <span data-current-high-temp></span>° C
         </div>
         <div class="earthDate"><span data-current-date></span></div>
         <div class="lowTemp">
-          Low temp: <span data-current-low-temp></span>° C
+          Low temp:
+          <span data-current-low-temp></span>° C
         </div>
       </div>
       <div class="past-data">
