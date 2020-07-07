@@ -45,11 +45,11 @@ body {
 }
 
 .bg1 {
-  background: url(/12-GridLayout/img/road.jpg);
+  background: url(./img/road.jpg);
 }
 
 .bg2 {
-  background: url(/12-GridLayout/img/flower.jpg);
+  background: url(./img/flower.jpg);
 }
 
 .container > div:nth-of-type(1) {
