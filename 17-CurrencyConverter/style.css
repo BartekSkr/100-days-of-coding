@@ -64,9 +64,7 @@ h2 {
 
 /* REMOVING ARROWS FROM INPUT NUMBER */
 #currency-input-first::-webkit-outer-spin-button,
-#currency-display-second::-webkit-outer-spin-button,
-#currency-input-first::-webkit-inner-spin-button,
-#currency-display-second::-webkit-inner-spin-button {
+#currency-input-first::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
