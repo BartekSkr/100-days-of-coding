@@ -37,7 +37,6 @@ h2 {
   cursor: pointer;
   border: none;
   background: rgb(218, 218, 218);
-  /* border-radius: 15px; */
 }
 
 #currency-first,
@@ -73,7 +72,6 @@ h2 {
 }
 
 .exchange-rate {
-  /* display: none; */
   background-color: royalblue;
   border-radius: 20px;
   padding: 10px;
