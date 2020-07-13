@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/2ea631baeb.js" crossorigin="anonymous"></script>
+    <title>Currency Converter</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h2>Currency Converter</h2>
+      </header>
+      <div class="currency first">
+        <button class="btn first-btn" id="first-btn">
+            <ul id="first-list">
+                <li id="first-currency">PLN</li>
+                <li id="first-currency">EUR</li>
+                <li id="first-currency">USD</li>
+                <li id="first-currency">GBP</li>
+            </ul>
+            <span id="currency-first-displaied">--</span>
+            <i class="fas fa-caret-down"></i>
+        </button>
+        <input type="number" id="currency-input-first" placeholder="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="12"></input>
+      </div>
+      <div class="exchange-rate">
+        <i class="fas fa-chart-line"></i>
+        <span>1</span>
+        <span id="first-currency-symbol">--</span>
+        =
+        <span id="second-currency-info">--</span>
+        <span id="second-currency-symbol">--</span>
+      </div>
+      <div class="currency second">
+        <button class="btn second-btn">
+             <ul id="second-list">
+                <li id="second-currency">PLN</li>              
+                <li id="second-currency">EUR</li>
+                <li id="second-currency">USD</li>
+                <li id="second-currency">GBP</li>
+            </ul>
+            <span id="currency-second-displaied">--</span>
+            <i class="fas fa-caret-down"></i>
+        </button>
+        <span id="currency-display-second">0</span>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
