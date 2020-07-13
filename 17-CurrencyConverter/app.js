@@ -37,7 +37,7 @@ function getData() {
 }
 
 firstCurrencyChoose.forEach((choose) =>
-  choose.addEventListener("click", () => {
+  choose.addEventListener("click", (e) => {
     firstCurrencyDisplaied.innerText = e.target.innerText;
 
     calculateCurrency();
@@ -52,8 +52,9 @@ secondCurrencyChoose.forEach((choose) =>
   })
 );
 
-function calculateCurrency(e) {
+function calculateCurrency() {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
+
   if (
     firstCurrencyDisplaied.innerText == "PLN" &&
     secondCurrencyDisplaied.innerText === "PLN"
