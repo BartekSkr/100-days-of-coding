@@ -1,26 +1,31 @@
-const firstCurrencyChoose = document.querySelectorAll("#first-currency");
-const secondCurrencyChoose = document.querySelectorAll("#second-currency");
-const firstCurrencyDisplaied = document.querySelector(
-  "#currency-first-displaied"
-);
-const secondCurrencyDisplaied = document.querySelector(
-  "#currency-second-displaied"
-);
-const firstCurrencyInput = document.getElementById("currency-input-first");
-const secondCurrencyDisplay = document.querySelector(
-  "#currency-display-second"
-);
+const firstCurrencyOption = document.getElementById("first-currency-select");
+const secondCurrencyOption = document.getElementById("second-currency-select");
+const currencyInput = document.getElementById("currency-input");
+const currencyDisplay = document.getElementById("currency-display");
 
-//  ECHANGE RATE
+// EXCHANGE RATE DISPLAY CONST
 const firstCurrencySymbol = document.getElementById("first-currency-symbol");
-const secondCurrencyInfo = document.getElementById("second-currency-info");
+const secondCurrencyRate = document.getElementById("second-currency-rate");
 const secondCurrencySymbol = document.getElementById("second-currency-symbol");
+const visibleExchangeRate = document.querySelector(".exchange-rate");
 
 let firstCurrencyValue;
 let secondCurrencyValue;
 const currencies = {};
 
-//   GETTING DATA FROM API
+firstCurrencyOption.addEventListener("click", () => {
+  firstCurrencySymbol.innerText = firstCurrencyOption.value.toUpperCase();
+
+  calculateCUrrency();
+});
+
+secondCurrencyOption.addEventListener("click", () => {
+  secondCurrencySymbol.innerText = secondCurrencyOption.value.toUpperCase();
+
+  calculateCUrrency();
+});
+
+// GETTING API DATA
 function getData() {
   const api = `https://api.ratesapi.io/api/latest`;
 
@@ -36,65 +41,39 @@ function getData() {
     });
 }
 
-firstCurrencyChoose.forEach((choose) =>
-  choose.addEventListener("click", (e) => {
-    firstCurrencyDisplaied.innerText = e.target.innerText;
-
-    calculateCurrency();
-  })
-);
-
-secondCurrencyChoose.forEach((choose) =>
-  choose.addEventListener("click", (e) => {
-    secondCurrencyDisplaied.innerText = e.target.innerText;
-
-    calculateCurrency();
-  })
-);
-
-function calculateCurrency() {
+// CALCULATING CURRENCY CONVERSION
+function calculateCUrrency() {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
 
   if (
-    firstCurrencyDisplaied.innerText == "PLN" &&
-    secondCurrencyDisplaied.innerText === "PLN"
+    firstCurrencyOption.value === "pln" &&
+    secondCurrencyOption.value === "pln"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = 1;
-
-    secondCurrencyDisplay.textContent = (firstCurrencyInput.value / 1)
+    secondCurrencyRate.textContent = 1;
+    currencyDisplay.textContent = (currencyInput.value / 1)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "PLN" &&
-    secondCurrencyDisplaied.innerText === "EUR"
+    firstCurrencyOption.value === "pln" &&
+    secondCurrencyOption.value === "eur"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = currencies.pln;
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value * currencies.pln
-    )
+    secondCurrencyRate.textContent = currencies.pln;
+    currencyDisplay.textContent = (currencyInput.value * currencies.pln)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "PLN" &&
-    secondCurrencyDisplaied.innerText === "USD"
+    firstCurrencyOption.value === "pln" &&
+    secondCurrencyOption.value === "usd"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.usd / currencies.pln).toFixed(
+    secondCurrencyRate.textContent = (currencies.usd / currencies.pln).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value *
+    currencyDisplay.textContent = (
+      currencyInput.value *
       (currencies.usd / currencies.pln)
     )
       .toFixed(2)
@@ -102,17 +81,14 @@ function calculateCurrency() {
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "PLN" &&
-    secondCurrencyDisplaied.innerText === "GBP"
+    firstCurrencyOption.value === "pln" &&
+    secondCurrencyOption.value === "gbp"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.gbp / currencies.pln).toFixed(
+    secondCurrencyRate.textContent = (currencies.gbp / currencies.pln).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value *
+    currencyDisplay.textContent = (
+      currencyInput.value *
       (currencies.gbp / currencies.pln)
     )
       .toFixed(2)
@@ -120,197 +96,155 @@ function calculateCurrency() {
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "EUR" &&
-    secondCurrencyDisplaied.innerText === "PLN"
+    firstCurrencyOption.value === "eur" &&
+    secondCurrencyOption.value === "eur"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = currencies.pln;
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value * currencies.pln
-    )
+    secondCurrencyRate.textContent = 1;
+    currencyDisplay.textContent = (currencyInput.value / 1)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "EUR" &&
-    secondCurrencyDisplaied.innerText === "EUR"
+    firstCurrencyOption.value === "eur" &&
+    secondCurrencyOption.value === "pln"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = 1;
-
-    secondCurrencyDisplay.textContent = (firstCurrencyInput.value / 1)
+    secondCurrencyRate.textContent = currencies.pln;
+    currencyDisplay.textContent = (currencyInput.value * currencies.pln)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "EUR" &&
-    secondCurrencyDisplaied.innerText === "USD"
+    firstCurrencyOption.value === "eur" &&
+    secondCurrencyOption.value === "usd"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = currencies.usd;
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value * currencies.usd
-    )
+    secondCurrencyRate.textContent = currencies.usd;
+    currencyDisplay.textContent = (currencyInput.value * currencies.usd)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "EUR" &&
-    secondCurrencyDisplaied.innerText === "GBP"
+    firstCurrencyOption.value === "eur" &&
+    secondCurrencyOption.value === "gbp"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = currencies.gbp;
-
-    secondCurrencyDisplay.textContent = (
-      firstCurrencyInput.value * currencies.gbp
-    )
+    secondCurrencyRate.textContent = currencies.gbp;
+    currencyDisplay.textContent = (currencyInput.value * currencies.gbp)
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "USD" &&
-    secondCurrencyDisplaied.innerText === "PLN"
+    firstCurrencyOption.value === "usd" &&
+    secondCurrencyOption.value === "usd"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.pln / currencies.usd).toFixed(
+    secondCurrencyRate.textContent = 1;
+    currencyDisplay.textContent = (currencyInput.value / 1)
+      .toFixed(2)
+      .replace(regex, " ");
+  }
+
+  if (
+    firstCurrencyOption.value === "usd" &&
+    secondCurrencyOption.value === "pln"
+  ) {
+    secondCurrencyRate.textContent = (currencies.pln / currencies.usd).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.pln) /
-      currencies.usd
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.pln / currencies.usd)
     )
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "USD" &&
-    secondCurrencyDisplaied.innerText === "EUR"
+    firstCurrencyOption.value === "usd" &&
+    secondCurrencyOption.value === "eur"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.eur / currencies.usd).toFixed(
+    secondCurrencyRate.textContent = (currencies.eur / currencies.usd).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.eur) /
-      currencies.usd
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.eur / currencies.usd)
     )
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "USD" &&
-    secondCurrencyDisplaied.innerText === "USD"
+    firstCurrencyOption.value === "usd" &&
+    secondCurrencyOption.value === "gbp"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = 1;
-
-    secondCurrencyDisplay.textContent = (firstCurrencyInput.value / 1)
-      .toFixed(2)
-      .replace(regex, " ");
-  }
-
-  if (
-    firstCurrencyDisplaied.innerText == "USD" &&
-    secondCurrencyDisplaied.innerText === "GBP"
-  ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.gbp / currencies.usd).toFixed(
+    secondCurrencyRate.textContent = (currencies.gbp / currencies.usd).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.gbp) /
-      currencies.usd
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.gbp / currencies.usd)
     )
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "GBP" &&
-    secondCurrencyDisplaied.innerText === "PLN"
+    firstCurrencyOption.value === "gbp" &&
+    secondCurrencyOption.value === "gbp"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.pln / currencies.gbp).toFixed(
+    secondCurrencyRate.textContent = 1;
+    currencyDisplay.textContent = (currencyInput.value / 1)
+      .toFixed(2)
+      .replace(regex, " ");
+  }
+
+  if (
+    firstCurrencyOption.value === "gbp" &&
+    secondCurrencyOption.value === "pln"
+  ) {
+    secondCurrencyRate.textContent = (currencies.pln / currencies.gbp).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.pln) /
-      currencies.gbp
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.pln / currencies.gbp)
     )
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "GBP" &&
-    secondCurrencyDisplaied.innerText === "EUR"
+    firstCurrencyOption.value === "gbp" &&
+    secondCurrencyOption.value === "eur"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.eur / currencies.gbp).toFixed(
+    secondCurrencyRate.textContent = (currencies.eur / currencies.gbp).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.eur) /
-      currencies.gbp
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.eur / currencies.gbp)
     )
       .toFixed(2)
       .replace(regex, " ");
   }
 
   if (
-    firstCurrencyDisplaied.innerText == "GBP" &&
-    secondCurrencyDisplaied.innerText === "USD"
+    firstCurrencyOption.value === "gbp" &&
+    secondCurrencyOption.value === "usd"
   ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = (currencies.usd / currencies.gbp).toFixed(
+    secondCurrencyRate.textContent = (currencies.usd / currencies.gbp).toFixed(
       4
     );
-
-    secondCurrencyDisplay.textContent = (
-      (firstCurrencyInput.value * currencies.usd) /
-      currencies.gbp
+    currencyDisplay.textContent = (
+      currencyInput.value *
+      (currencies.usd / currencies.gbp)
     )
-      .toFixed(2)
-      .replace(regex, " ");
-  }
-
-  if (
-    firstCurrencyDisplaied.innerText == "GBP" &&
-    secondCurrencyDisplaied.innerText === "GBP"
-  ) {
-    firstCurrencySymbol.textContent = firstCurrencyDisplaied.innerText;
-    secondCurrencySymbol.textContent = secondCurrencyDisplaied.innerText;
-    secondCurrencyInfo.textContent = 1;
-
-    secondCurrencyDisplay.textContent = (firstCurrencyInput.value / 1)
       .toFixed(2)
       .replace(regex, " ");
   }
 }
 
 window.addEventListener("load", getData);
-firstCurrencyInput.addEventListener("keyup", calculateCurrency);
+currencyInput.addEventListener("keyup", calculateCUrrency);
