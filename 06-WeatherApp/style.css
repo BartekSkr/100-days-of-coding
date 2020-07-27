@@ -15,6 +15,7 @@ body {
   color: white;
 }
 
+/* CURRENT WEATHER */
 .location {
   height: 40vh;
   display: flex;
@@ -81,6 +82,7 @@ body {
 
 .temperature-degree-feels > h3 {
   margin-right: 2px;
+  cursor: pointer;
 }
 
 .temperature-degree-feels > span {
@@ -101,4 +103,39 @@ body {
 .wind > h4 {
   margin-right: 2px;
   margin-left: 5px;
+}
+
+/* FUTURE WEATHER */
+.future-weather {
+  width: 550px;
+  position: absolute;
+  bottom: 100px;
+  left: auto;
+  display: flex;
+  flex: 1;
+  text-align: center;
+}
+
+.first-day,
+.second-day,
+.third-day,
+.fourth-day {
+  height: 80%;
+  width: 20%;
+  margin: auto;
+}
+
+.first-day h4,
+.first-day div,
+.first-day h5,
+.second-day h4,
+.second-day div,
+.second-day h5,
+.third-day h4,
+.third-day div,
+.third-day h5,
+.fourth-day h4,
+.fourth-day div,
+.fourth-day h5 {
+  margin: 6px 0;
 }
