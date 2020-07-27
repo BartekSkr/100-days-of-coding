@@ -20,25 +20,25 @@ const weather = {};
 const KELVIN = 273;
 const API_KEY = `36fbe6b6d29c0ef2318fd39637a16ddd`;
 
-//  FIRST DAY
+//  FIRST DAY CONST
 const firstDayName = document.querySelector(".first-day-name");
 const firstDayIcon = document.querySelector(".first-day-icon");
 const firstDayDescription = document.querySelector(".first-day-description");
 const firstDayTemp = document.querySelector(".first-day-temp");
 
-//  SECOND DAY
+//  SECOND DAY CONST
 const secondDayName = document.querySelector(".second-day-name");
 const secondDayIcon = document.querySelector(".second-day-icon");
 const secondDayDescription = document.querySelector(".second-day-description");
 const secondDayTemp = document.querySelector(".second-day-temp");
 
-//  THIRD DAY
+//  THIRD DAY CONST
 const thirdDayName = document.querySelector(".third-day-name");
 const thirdDayIcon = document.querySelector(".third-day-icon");
 const thirdDayDescription = document.querySelector(".third-day-description");
 const thirdDayTemp = document.querySelector(".third-day-temp");
 
-//  FOURTH DAY
+//  FOURTH DAY CONST
 const fourthDayName = document.querySelector(".fourth-day-name");
 const fourthDayIcon = document.querySelector(".fourth-day-icon");
 const fourthDayDescription = document.querySelector(".fourth-day-description");
