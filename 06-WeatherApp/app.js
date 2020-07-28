@@ -233,7 +233,7 @@ function windDegree(direction) {
   if (direction === 180) {
     return "S";
   }
-  if (direction > 190 && direction < 270) {
+  if (direction > 180 && direction < 270) {
     return "SW";
   }
   if (direction === 270) {
