@@ -22,7 +22,7 @@ body {
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -15%);
 }
@@ -38,7 +38,7 @@ body {
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -30%);
 }
@@ -50,7 +50,7 @@ body {
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
@@ -74,7 +74,7 @@ body {
 .temperature-degree-feels {
   height: 8vh;
   position: absolute;
-  top: 95%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, 10%);
   display: flex;
@@ -94,7 +94,7 @@ body {
 .wind {
   height: 8vh;
   position: absolute;
-  top: 140%;
+  top: 130%;
   left: 50%;
   transform: translate(-50%, 10%);
   display: flex;
@@ -138,4 +138,13 @@ body {
 .fourth-day div,
 .fourth-day h5 {
   margin: 6px 0;
+}
+
+/* SMALLER SCREEN DEVICES */
+@media only screen and (max-width: 420px) {
+  /* FUTURE WEATHER */
+  .future-weather {
+    width: 90vw;
+    bottom: 100px;
+  }
 }
