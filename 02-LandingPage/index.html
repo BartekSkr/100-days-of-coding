@@ -1,93 +1,47 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
-
-    <script src=""></script>
-
+    <script
+      src="https://kit.fontawesome.com/2ea631baeb.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
+    <title>Landin Page</title>
   </head>
+
   <body>
     <div class="container">
-      <div class="top">
-        <div class="left-row">
-          <h1 class="title">The Perfect Touch</h1>
-
-          <h3 class="under-title">
-            Custom folral arrangements tailored to your style and space.
-            Starting at 75$ per delivery.
-          </h3>
-
-          <h3 class="under-title">
-            Schedule a complimentary design consultation today
-          </h3>
-        </div>
-
-        <div class="right-row">
-            <div class="row">
-                <label>Full name</label>
-                <input type="text"></input>
-            </div>
-            <div class="row">
-                <label>Phone</label>
-                <input type="text"></input>
-            </div>
-            <div class="row">
-                <label>Email</label>
-                <input type="text"></input>
-            </div>
-            <div class="row">
-                <label>City</label>
-                <input type="text"></input>
-            </div>
-            <div class="row">
-                <label>Comment</label>
-                <textarea type="text"></textarea>
-            </div>
-          <input type="submit" id="submit-button" />
-        </div>
+      <div class="info">
+        <h1>Creative meeting</h1>
+        <h2>Join our creative meeting and learn how to grow your business!</h2>
       </div>
-
-      <div class="bottom">
-        <div id="bottom-div-1">
-          <h1 id="bottom-h1-left">
-            - 1 -
-          </h1>
-          <h3 id="bottom-h3">Design</h3>
-          <p class="bottom-p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
-            sint accusantium neque voluptatum aspernatur eaque omnis soluta!
-            Optio reiciendis nulla quidem, ratione beatae accusamus inventore
-            architecto quae porro ducimus voluptate?
-          </p>
+      <form class="form" action="#">
+        <h3>Fill the form!</h3>
+        <div class="form-name">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Full Name" required />
+          <i class="fas fa-arrow-down"></i>
         </div>
-        <div id="bottom-div-2">
-          <h1 id="bottom-h1-center">
-            - 2 -
-          </h1>
-          <h3 id="bottom-h3">Schedule</h3>
-          <p class="bottom-p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
-            sint accusantium neque voluptatum aspernatur eaque omnis soluta!
-            Optio reiciendis nulla quidem, ratione beatae accusamus inventore
-            architecto quae porro ducimus voluptate?
-          </p>
+        <div class="form-phone inactive">
+          <i class="fas fa-phone-alt"></i>
+          <input type="number" placeholder="Phone number" required />
+          <i class="fas fa-arrow-down"></i>
         </div>
-        <div id="bottom-div-3">
-          <h1 id="bottom-h1-right">
-            - 3 -
-          </h1>
-          <h3 id="bottom-h3">Enjoy</h3>
-          <p class="bottom-p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
-            sint accusantium neque voluptatum aspernatur eaque omnis soluta!
-            Optio reiciendis nulla quidem, ratione beatae accusamus inventore
-            architecto quae porro ducimus voluptate?
-          </p>
+        <div class="form-email inactive">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" required />
+          <i class="fas fa-arrow-down"></i>
         </div>
-      </div>
+        <div class="form-finish inactive">
+          <i class="fas fa-check"></i>
+          <p>Thank You!</p>
+          <i class="fas fa-check"></i>
+        </div>
+      </form>
     </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
