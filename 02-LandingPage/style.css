@@ -102,6 +102,7 @@ div.inactive {
   transform: translate(-50%, 50%);
 }
 
+/* SMALLER SCREEN WIDTH */
 @media only screen and (max-width: 420px) {
   .container {
     width: 90%;
@@ -137,5 +138,26 @@ div.inactive {
   .form-finish {
     width: 70%;
     height: 40px;
+  }
+
+  /* SHAKING ANIMATION WHEN ERROR IN INPUT */
+}
+@keyframes shake {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  20%,
+  60% {
+    transform: translate(-50%, -50%) rotate(-3deg);
+  }
+
+  40%,
+  80% {
+    transform: translate(-50%, -50%) rotate(3deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 }

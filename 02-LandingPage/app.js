@@ -17,7 +17,14 @@ function animatedForm() {
         nextSlide(parent, nextForm);
       } else if (input.type === "email" && validateEmail(input)) {
         nextSlide(parent, nextForm);
+      } else {
+        parent.style.animation = "shake 0.5s ease";
       }
+
+      //GET RID OF ANIMATION
+      parent.addEventListener("animationend", () => {
+        parent.style.animation = "";
+      });
     });
   });
 }
