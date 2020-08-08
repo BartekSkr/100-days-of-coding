@@ -14,7 +14,7 @@ body {
   width: 70%;
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -52,7 +52,7 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: whitesmoke;
-  width: 25%;
+  width: 400px;
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -84,6 +84,24 @@ h3 {
   flex: 1;
 }
 
+/* ERROR SPANS */
+.form-name span,
+.form-phone span,
+.form-email span {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: rgb(241, 62, 62);
+  border: 2px solid red;
+  color: whitesmoke;
+  border-radius: 10px;
+}
+
+/* HIDING 'NUMBER' INPUT ARROWS */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -102,7 +120,7 @@ div.inactive {
   transform: translate(-50%, 50%);
 }
 
-/* SMALLER SCREEN WIDTH */
+/* SMALLER SCREENS */
 @media only screen and (max-width: 420px) {
   .container {
     width: 90%;
@@ -132,14 +150,6 @@ div.inactive {
     transform: translate(-50%, -15%);
   }
 
-  .form-name,
-  .form-phone,
-  .form-email,
-  .form-finish {
-    width: 70%;
-    height: 40px;
-  }
-
   /* SHAKING ANIMATION WHEN ERROR IN INPUT */
 }
 @keyframes shake {
@@ -149,12 +159,12 @@ div.inactive {
 
   20%,
   60% {
-    transform: translate(-50%, -50%) rotate(-3deg);
+    transform: translate(-50%, -50%) rotate(-2deg);
   }
 
   40%,
   80% {
-    transform: translate(-50%, -50%) rotate(3deg);
+    transform: translate(-50%, -50%) rotate(2deg);
   }
 
   100% {

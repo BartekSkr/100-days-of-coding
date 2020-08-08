@@ -2,13 +2,15 @@ const arrows = document.querySelectorAll(".fa-arrow-down");
 const errorColor = "rgb(236, 90, 90)";
 const okColor = "rgb(107, 247, 107)";
 
+let input, parent, nextForm;
+
 //  ANIMATING FORM
 function animatedForm() {
   arrows.forEach((arrow) => {
     arrow.addEventListener("click", () => {
-      const input = arrow.previousElementSibling;
-      const parent = arrow.parentElement;
-      const nextForm = parent.nextElementSibling;
+      input = arrow.previousElementSibling;
+      parent = arrow.parentElement;
+      nextForm = parent.nextElementSibling;
 
       //  CHECK FOR VALIDATION
       if (input.type === "text" && validateUser(input)) {
@@ -32,8 +34,8 @@ function animatedForm() {
 //  INPUTS VALIDATION
 function validateUser(user) {
   if (user.value.length < 10) {
-    console.log("Not enough characters");
     error(errorColor);
+    input.nextElementSibling.nextElementSibling.style.display = "block";
   } else {
     error(okColor);
     return true;
@@ -43,11 +45,15 @@ function validateUser(user) {
 function validatePhone(phoneNumber) {
   const phoneValidation = /^\d+$/;
 
-  if (phoneNumber.value.match(phoneValidation)) {
+  if (
+    phoneNumber.value.match(phoneValidation) &&
+    phoneNumber.value.length >= 9
+  ) {
     error(okColor);
     return true;
   } else {
     error(errorColor);
+    input.nextElementSibling.nextElementSibling.style.display = "block";
   }
 }
 
@@ -59,6 +65,7 @@ function validateEmail(email) {
     return true;
   } else {
     error(errorColor);
+    input.nextElementSibling.nextElementSibling.style.display = "block";
   }
 }
 
