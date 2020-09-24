@@ -80,7 +80,7 @@ body {
   display: flex;
 }
 
-.temperature-degree-feels > h3 {
+.temperature-degree-feels-like {
   margin-right: 2px;
   cursor: pointer;
 }
@@ -100,7 +100,7 @@ body {
   display: flex;
 }
 
-.wind > h4 {
+.wind-speed {
   margin-right: 2px;
   margin-left: 5px;
 }
@@ -116,6 +116,15 @@ body {
   text-align: center;
 }
 
+.first-day-wind-speed-div,
+.second-day-wind-speed-div,
+.third-day-wind-speed-div,
+.fourth-day-wind-speed-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .first-day,
 .second-day,
 .third-day,
@@ -125,23 +134,35 @@ body {
   margin: auto;
 }
 
-.first-day h4,
-.first-day div,
-.first-day h5,
-.second-day h4,
-.second-day div,
-.second-day h5,
-.third-day h4,
-.third-day div,
-.third-day h5,
-.fourth-day h4,
-.fourth-day div,
-.fourth-day h5 {
+.first-day-name,
+.first-day-icon,
+.first-day-description,
+.first-day-temp,
+.first-day-wind-speed,
+.first-day-wind-direction,
+.second-day-name,
+.second-day-icon,
+.second-day-description,
+.second-day-temp,
+.second-day-wind-speed,
+.second-day-wind-direction,
+.third-day-name,
+.third-day-icon,
+.third-day-description,
+.third-day-temp,
+.third-day-wind-speed,
+.third-day-wind-direction,
+.fourth-day-name,
+.fourth-day-icon,
+.fourth-day-description,
+.fourth-day-temp,
+.fourth-day-wind-speed,
+.fourth-day-wind-direction {
   margin: 6px 0;
 }
 
 /* SMALLER SCREEN DEVICES */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 620px) {
   /* FUTURE WEATHER */
   .future-weather {
     width: 90vw;

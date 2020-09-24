@@ -1,4 +1,10 @@
-//  TODAY'S WEATHER CONST
+//  CONST
+const weather = {};
+
+const KELVIN = 273;
+const API_KEY = `36fbe6b6d29c0ef2318fd39637a16ddd`;
+
+//  today's weather
 const locationCity = document.querySelector(".location-timezone");
 const currentWeatherIcon = document.querySelector(".weather-icon");
 const currentTemperatureDescription = document.querySelector(
@@ -14,13 +20,7 @@ const currentTemperatureFeelsSpan = document.querySelector(
 );
 const currentWindSpeed = document.querySelector(".wind-speed");
 const currentWindDirection = document.querySelector(".wind-direction");
-
-const weather = {};
-
-const KELVIN = 273;
-const API_KEY = `36fbe6b6d29c0ef2318fd39637a16ddd`;
-
-//  FIRST DAY CONST
+//  first day
 const firstDayName = document.querySelector(".first-day-name");
 const firstDayIcon = document.querySelector(".first-day-icon");
 const firstDayDescription = document.querySelector(".first-day-description");
@@ -29,8 +29,7 @@ const firstDayWindSpeed = document.querySelector(".first-day-wind-speed");
 const firstDayWindDirection = document.querySelector(
   ".first-day-wind-direction"
 );
-
-//  SECOND DAY CONST
+//  second day
 const secondDayName = document.querySelector(".second-day-name");
 const secondDayIcon = document.querySelector(".second-day-icon");
 const secondDayDescription = document.querySelector(".second-day-description");
@@ -39,8 +38,7 @@ const secondDayWindSpeed = document.querySelector(".second-day-wind-speed");
 const secondDayWindDirection = document.querySelector(
   ".second-day-wind-direction"
 );
-
-//  THIRD DAY CONST
+//  third day
 const thirdDayName = document.querySelector(".third-day-name");
 const thirdDayIcon = document.querySelector(".third-day-icon");
 const thirdDayDescription = document.querySelector(".third-day-description");
@@ -49,8 +47,7 @@ const thirdDayWindSpeed = document.querySelector(".third-day-wind-speed");
 const thirdDayWindDirection = document.querySelector(
   ".third-day-wind-direction"
 );
-
-//  FOURTH DAY CONST
+//  fourth day
 const fourthDayName = document.querySelector(".fourth-day-name");
 const fourthDayIcon = document.querySelector(".fourth-day-icon");
 const fourthDayDescription = document.querySelector(".fourth-day-description");
@@ -96,7 +93,7 @@ function getWeather(latitude, longitude) {
     .then((data) => {
       console.log(data);
 
-      //  TODAY'S WEATHER
+      //  today's weather
       weather.currentLocation = data.timezone.match(regex)[1];
       weather.currentIcon = `<img src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png">`;
       weather.currentDescription = data.current.weather[0].description;
@@ -110,7 +107,7 @@ function getWeather(latitude, longitude) {
       weather.currentKelvins = data.current.temp;
       weather.currentFeelsKelvins = data.current.feels_like;
 
-      //  FIRST DAY WEATHER
+      //  first day weather
       weather.firstDayName = data.daily[1].dt;
       weather.firstDayIcon = `<img src="http://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}.png">`;
       weather.firstDayDescription = data.daily[1].weather[0].description;
@@ -121,7 +118,7 @@ function getWeather(latitude, longitude) {
       weather.firstDayWindSpeed = data.daily[1].wind_speed;
       weather.firstDayWindDirection = data.daily[1].wind_deg;
 
-      //  SECOND DAY WEATHER
+      //  second day weather
       weather.secondDayName = data.daily[2].dt;
       weather.secondDayIcon = `<img src="http://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}.png">`;
       weather.secondDayDescription = data.daily[2].weather[0].description;
@@ -132,7 +129,7 @@ function getWeather(latitude, longitude) {
       weather.secondDayWindSpeed = data.daily[2].wind_speed;
       weather.secondDayWindDirection = data.daily[2].wind_deg;
 
-      //  THIRD DAY WEATHER
+      //  third day weather
       weather.thirdDayName = data.daily[3].dt;
       weather.thirdDayIcon = `<img src="http://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}.png">`;
       weather.thirdDayDescription = data.daily[3].weather[0].description;
@@ -143,7 +140,7 @@ function getWeather(latitude, longitude) {
       weather.thirdDayWindSpeed = data.daily[3].wind_speed;
       weather.thirdDayWindDirection = data.daily[3].wind_deg;
 
-      //  FOURTH DAY WEATHER
+      //  fourth day weather
       weather.fourthDayName = data.daily[4].dt;
       weather.fourthDayIcon = `<img src="http://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}.png">`;
       weather.fourthDayDescription = data.daily[4].weather[0].description;
@@ -162,7 +159,7 @@ function getWeather(latitude, longitude) {
 function displayWeather() {
   locationCity.textContent = weather.currentLocation;
 
-  //  TODAY'S WEATHER
+  //  today's weather
   currentWeatherIcon.innerHTML = weather.currentIcon;
   currentTemperatureDescription.textContent = weather.currentDescription;
   currentDegrees.textContent = weather.currentDegrees;
@@ -172,7 +169,7 @@ function displayWeather() {
   )} km/h`;
   currentWindDirection.textContent = windDegree(weather.currentWindDirection);
 
-  //  FIRST DAY WEATHER
+  //  first day weather
   firstDayName.textContent = getDayName(weather.firstDayName);
   firstDayIcon.innerHTML = weather.firstDayIcon;
   firstDayDescription.textContent = weather.firstDayDescription;
@@ -182,7 +179,7 @@ function displayWeather() {
   )} km/h`;
   firstDayWindDirection.textContent = windDegree(weather.firstDayWindDirection);
 
-  //  SECOND DAY WEATHER
+  //  second day weather
   secondDayName.textContent = getDayName(weather.secondDayName);
   secondDayIcon.innerHTML = weather.secondDayIcon;
   secondDayDescription.textContent = weather.secondDayDescription;
@@ -194,7 +191,7 @@ function displayWeather() {
     weather.secondDayWindDirection
   );
 
-  //  THIRD DAY WEATHER
+  //  third day weather
   thirdDayName.textContent = getDayName(weather.thirdDayName);
   thirdDayIcon.innerHTML = weather.thirdDayIcon;
   thirdDayDescription.textContent = weather.thirdDayDescription;
@@ -204,7 +201,7 @@ function displayWeather() {
   )} km/h`;
   thirdDayWindDirection.textContent = windDegree(weather.thirdDayWindDirection);
 
-  //  FOURTH DAY WEATHER
+  //  fourth day weather
   fourthDayName.textContent = getDayName(weather.fourthDayName);
   fourthDayIcon.innerHTML = weather.fourthDayIcon;
   fourthDayDescription.textContent = weather.fourthDayDescription;
@@ -294,7 +291,7 @@ function degressClick() {
     let fahrenheit = kelvinToFahrenheit(weather.currentKelvins);
     let fahrenheitFeels = kelvinToFahrenheit(weather.currentFeelsKelvins);
 
-    //    TODAY'S WEATHER
+    //  today
     currentDegrees.textContent = fahrenheit;
     currentFeelsLikeDegree.textContent = fahrenheitFeels;
     currentTemperatureSpan.textContent = "°F";
@@ -303,7 +300,7 @@ function degressClick() {
       weather.currentWindSpeed
     )} mph`;
 
-    //    FIRST DAY
+    //  first day
     firstDayTemp.textContent = `${kelvinToFahrenheit(
       weather.firtstDayKelvins
     )} °F`;
@@ -311,7 +308,7 @@ function degressClick() {
       weather.firstDayWindSpeed
     )} mph`;
 
-    //    SECOND DAY
+    //  second day
     secondDayTemp.textContent = `${kelvinToFahrenheit(
       weather.secondDayKelvins
     )} °F`;
@@ -319,7 +316,7 @@ function degressClick() {
       weather.secondDayWindSpeed
     )} mph`;
 
-    //    THIRD DAY
+    //  third day
     thirdDayTemp.textContent = `${kelvinToFahrenheit(
       weather.thirdDayKelvins
     )} °F`;
@@ -327,7 +324,7 @@ function degressClick() {
       weather.thirdDayWindSpeed
     )} mph`;
 
-    //    FOURT DAY
+    //  fourth day
     fourthDayTemp.textContent = `${kelvinToFahrenheit(
       weather.fourthDayKelvins
     )} °F`;
@@ -335,7 +332,7 @@ function degressClick() {
       weather.fourthDayWindSpeed
     )} mph`;
   } else {
-    //    TODAY'S WEATHER
+    //  today
     currentDegrees.textContent = weather.currentDegrees;
     currentFeelsLikeDegree.textContent = weather.currentFeelsLikeDegree;
     currentTemperatureSpan.textContent = "°C";
@@ -344,25 +341,25 @@ function degressClick() {
       weather.currentWindSpeed
     )} km/h`;
 
-    //    FIRST DAY
+    //  first day
     firstDayTemp.textContent = weather.firstDayTemp;
     firstDayWindSpeed.textContent = `${windSpeedInKm(
       weather.firstDayWindSpeed
     )} km/h`;
 
-    //    SECOND DAY
+    //  second day
     secondDayTemp.textContent = weather.secondDayTemp;
     secondDayWindSpeed.textContent = `${windSpeedInKm(
       weather.secondDayWindSpeed
     )} km/h`;
 
-    //    THIRD DAY
+    //  third day
     thirdDayTemp.textContent = weather.thirdDayTemp;
     thirdDayWindSpeed.textContent = `${windSpeedInKm(
       weather.thirdDayWindSpeed
     )} km/h`;
 
-    //    FOURTH DAY
+    //  fourth day
     fourthDayTemp.textContent = weather.fourthDayTemp;
     fourthDayWindSpeed.textContent = `${windSpeedInKm(
       weather.fourthDayWindSpeed
@@ -370,6 +367,6 @@ function degressClick() {
   }
 }
 
-//  CLICKING DEGREES
+//  CLICKING DEGREES EVENT LISTENERS
 currentDegrees.addEventListener("click", degressClick);
 currentFeelsLikeDegree.addEventListener("click", degressClick);
