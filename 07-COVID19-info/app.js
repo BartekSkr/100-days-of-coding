@@ -1,28 +1,32 @@
-// GLOBAL DATA CONST
+//  CONST
+// global data
 const globalCases = document.querySelector(".global-data-cases");
 const globalDeaths = document.querySelector(".global-data-deaths");
 const globalRecovered = document.querySelector(".global-data-recovered");
-
-// POLAND DATA CONST
+// Poland data
 const polandTodayCases = document.querySelector(".todayCases");
 const polandTodayDeaths = document.querySelector(".todayDeaths");
 const polandCases = document.querySelector(".overallCases");
 const polandDeaths = document.querySelector(".overallDeaths");
 const polandRecovered = document.querySelector(".overallRecovered");
 
+//  APIs
 const GLOBAL_API = `https://coronavirus-19-api.herokuapp.com/all`;
 const POLAND_API = `https://coronavirus-19-api.herokuapp.com/countries/poland`;
 
 const globalData = {};
 const polandData = {};
 
+//  FUNCTIONS
+//  space after every 3 characters
 function numberSpaces(num) {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
   return num.toString().replace(regex, " ");
 }
 
+//  getting data from API
 function getData() {
-  // GLOBAL
+  // global
   fetch(GLOBAL_API)
     .then((response) => response.json())
     .then((data) => {
@@ -35,8 +39,8 @@ function getData() {
 
       displayData();
     });
-
-  // POLAND
+  
+  // Poland
   fetch(POLAND_API)
     .then((respone) => respone.json())
     .then((data) => {
@@ -53,13 +57,14 @@ function getData() {
     });
 }
 
+//  display data
 function displayData() {
-  // GLOBAL
+  // global
   globalCases.textContent = numberSpaces(globalData.cases);
   globalDeaths.textContent = numberSpaces(globalData.deaths);
   globalRecovered.textContent = numberSpaces(globalData.recovered);
-
-  // POLAND
+  
+  // Poland
   polandTodayCases.textContent = numberSpaces(polandData.todayCases);
   polandTodayDeaths.textContent = numberSpaces(polandData.todayDeaths);
   polandCases.textContent = numberSpaces(polandData.cases);
@@ -67,4 +72,5 @@ function displayData() {
   polandRecovered.textContent = numberSpaces(polandData.recovered);
 }
 
+//  EVENT LISTENER
 window.addEventListener("load", getData);
