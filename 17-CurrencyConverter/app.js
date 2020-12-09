@@ -16,13 +16,13 @@ const currencies = {};
 firstCurrencyOption.addEventListener("click", () => {
   firstCurrencySymbol.innerText = firstCurrencyOption.value.toUpperCase();
 
-  calculateCUrrency();
+  calculateCurrency();
 });
 
 secondCurrencyOption.addEventListener("click", () => {
   secondCurrencySymbol.innerText = secondCurrencyOption.value.toUpperCase();
 
-  calculateCUrrency();
+  calculateCurrency();
 });
 
 // GETTING API DATA
@@ -42,7 +42,7 @@ function getData() {
 }
 
 // CALCULATING CURRENCY CONVERSION
-function calculateCUrrency() {
+function calculateCurrency() {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
 
   if (
@@ -247,4 +247,4 @@ function calculateCUrrency() {
 }
 
 window.addEventListener("load", getData);
-currencyInput.addEventListener("keyup", calculateCUrrency);
+currencyInput.addEventListener("keyup", calculateCurrency);
