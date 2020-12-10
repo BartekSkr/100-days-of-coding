@@ -35,6 +35,11 @@ h2 {
   height: 25px;
 }
 
+#first-currency-symbol,
+#second-currency-symbol {
+  font-weight: bold;
+}
+
 #currency-input,
 #currency-display {
   text-align: right;
