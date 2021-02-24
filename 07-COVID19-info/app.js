@@ -21,32 +21,26 @@ const polandData = {};
 //  space after every 3 characters
 function numberSpaces(num) {
   const regex = /\B(?=(\d{3})+(?!\d))/g;
-  return num.toString().replace(regex, " ");
+  return [num].toString().replace(regex, " ");
 }
 
 //  getting data from API
 function getData() {
   // global
   fetch(GLOBAL_API)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("globalData:");
-      console.log(data);
-
+    .then(response => response.json())
+    .then(data => {
       globalData.cases = data.cases;
       globalData.deaths = data.deaths;
       globalData.recovered = data.recovered;
 
       displayData();
     });
-  
+
   // Poland
   fetch(POLAND_API)
-    .then((respone) => respone.json())
+    .then((response) => response.json())
     .then((data) => {
-      console.log("polandData:");
-      console.log(data);
-
       polandData.todayCases = data.todayCases;
       polandData.todayDeaths = data.todayDeaths;
       polandData.cases = data.cases;
@@ -63,7 +57,7 @@ function displayData() {
   globalCases.textContent = numberSpaces(globalData.cases);
   globalDeaths.textContent = numberSpaces(globalData.deaths);
   globalRecovered.textContent = numberSpaces(globalData.recovered);
-  
+
   // Poland
   polandTodayCases.textContent = numberSpaces(polandData.todayCases);
   polandTodayDeaths.textContent = numberSpaces(polandData.todayDeaths);
